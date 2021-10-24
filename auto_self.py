@@ -3,14 +3,6 @@ from selenium.webdriver.common.keys import Keys
 import time as t
 import pyautogui
 
-# 크롬 드라이버 exe 파일의 위치를 입력
-chromedriver = 'chromedriver.exe'
-
-
-# 옵션 변경
-options = webdriver.ChromeOptions()
-options.add_experimental_option("excludeSwitches", ["enable-logging"])
-driver = webdriver.Chrome(chromedriver, options=options)
 
 # 변수설정
 url = 'https://google.com'
@@ -37,6 +29,15 @@ sido_list = ['서울특별시', '부산광역시', '대구광역시', '인천광
 level_list = ['유치원', '초등학교', '중학교', '고등학교']
 index_sido = str(sido_list.index(sido)+2)
 index_level = str(level_list.index(level)+2)
+
+# 크롬 드라이버 exe 파일의 위치를 입력
+chromedriver = 'chromedriver.exe'
+
+# 옵션 변경
+options = webdriver.ChromeOptions()
+options.add_experimental_option("excludeSwitches", ["enable-logging"])
+driver = webdriver.Chrome(chromedriver, options=options)
+
 # 시작
 driver.get(url)
 
@@ -75,7 +76,7 @@ driver.find_element_by_xpath(
 t.sleep(2)
 
 list_password = list(password)
-imgprefix = 'password/password_'
+imgprefix = 'password\password_' 
 imgsuffix = '.PNG'
 for i in list_password:
     if(i != '\0'):
